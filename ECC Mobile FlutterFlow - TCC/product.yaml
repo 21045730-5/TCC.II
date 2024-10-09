@@ -1,0 +1,1056 @@
+import '/flutter_flow/flutter_flow_count_controller.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/main.dart';
+import '/pages/freight/freight_widget.dart';
+import '/pages/payment_methods/payment_methods_widget.dart';
+import '/pages/product/product_widget.dart';
+import '/pages/product_information/product_information_widget.dart';
+import '/pages/product_specification/product_specification_widget.dart';
+import '/pages/technical_information/technical_information_widget.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
+import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+
+import 'product_model.dart';
+export 'product_model.dart';
+
+class ProductWidget extends StatefulWidget {
+  const ProductWidget({super.key});
+
+  @override
+  State<ProductWidget> createState() => _ProductWidgetState();
+}
+
+class _ProductWidgetState extends State<ProductWidget> {
+  late ProductModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ProductModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: Color(0xFFF3F3F3),
+      body: Stack(
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0, 4.52),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: 500,
+                            child: Stack(
+                              children: [
+                                PageView(
+                                  controller: _model.pageViewController ??=
+                                      PageController(initialPage: 0),
+                                  scrollDirection: Axis.horizontal,
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        Align(
+                                          alignment: AlignmentDirectional(0, 0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await Navigator.push(
+                                                context,
+                                                PageTransition(
+                                                  type: PageTransitionType.fade,
+                                                  child:
+                                                      FlutterFlowExpandedImageView(
+                                                    image: Image.asset(
+                                                      'assets/images/Bolsa-Baguete-Pantone-Verde-9982846-Verde_3.webp',
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                    allowRotation: false,
+                                                    tag: 'imageTag1',
+                                                    useHeroAnimation: true,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                            child: Hero(
+                                              tag: 'imageTag1',
+                                              transitionOnUserGestures: true,
+                                              child: Image.asset(
+                                                'assets/images/Bolsa-Baguete-Pantone-Verde-9982846-Verde_3.webp',
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                        .width,
+                                                height: double.infinity,
+                                                fit: BoxFit.fitHeight,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: AlignmentDirectional(
+                                              -0.96, -1.01),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 50, 0, 0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 50,
+                                              borderWidth: 0,
+                                              buttonSize: 35,
+                                              fillColor: Color(0x5A313131),
+                                              icon: Icon(
+                                                Icons.arrow_back,
+                                                color: Color(0xFFD7D7D7),
+                                                size: 20,
+                                              ),
+                                              onPressed: () async {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'HomePage'),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.7, -1),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 50, 0, 0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 50,
+                                              borderWidth: 0,
+                                              buttonSize: 35,
+                                              fillColor: Color(0x5A313131),
+                                              icon: Icon(
+                                                Icons.favorite_border_sharp,
+                                                color: Color(0xFFD7D7D7),
+                                                size: 17,
+                                              ),
+                                              onPressed: () {
+                                                print('IconButton pressed ...');
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.95, -1),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 50, 0, 0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 50,
+                                              borderWidth: 0,
+                                              buttonSize: 35,
+                                              fillColor: Color(0x5A313131),
+                                              icon: Icon(
+                                                Icons.share,
+                                                color: Color(0xFFD7D7D7),
+                                                size: 14,
+                                              ),
+                                              onPressed: () {
+                                                print('IconButton pressed ...');
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Image.asset(
+                                      'assets/images/Bolsa-P-Feminina-Pantone-com-Ziper-Preta-9945763-Preto_1.webp',
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Image.asset(
+                                      'assets/images/15790654-800-auto.webp',
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 10),
+                                    child: smooth_page_indicator
+                                        .SmoothPageIndicator(
+                                      controller: _model.pageViewController ??=
+                                          PageController(initialPage: 0),
+                                      count: 3,
+                                      axisDirection: Axis.horizontal,
+                                      onDotClicked: (i) async {
+                                        await _model.pageViewController!
+                                            .animateToPage(
+                                          i,
+                                          duration: Duration(milliseconds: 500),
+                                          curve: Curves.ease,
+                                        );
+                                        safeSetState(() {});
+                                      },
+                                      effect: smooth_page_indicator.SlideEffect(
+                                        spacing: 5,
+                                        radius: 30,
+                                        dotWidth: 7,
+                                        dotHeight: 7,
+                                        dotColor: Color(0xFF9E9E9E),
+                                        activeDotColor: Color(0xFF2B2B2B),
+                                        paintStyle: PaintingStyle.fill,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 110,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).tertiary,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'Product Name',
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Nunito',
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'R\$ 120.00',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Nunito',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    17, 17, 0, 17),
+                                child: RatingBar.builder(
+                                  onRatingUpdate: (newValue) => safeSetState(
+                                      () => _model.ratingBarValue = newValue),
+                                  itemBuilder: (context, index) => Icon(
+                                    Icons.star_rounded,
+                                    color: Color(0xFF606060),
+                                  ),
+                                  direction: Axis.horizontal,
+                                  initialRating: _model.ratingBarValue ??= 3,
+                                  unratedColor: Color(0xFF9E9E9E),
+                                  itemCount: 5,
+                                  itemSize: 17,
+                                  glowColor: Color(0xFF606060),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 5,
+                                child: Align(
+                                  alignment: AlignmentDirectional(1, 0),
+                                  child: FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 0,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.favorite_border,
+                                      color: Color(0xFF606060),
+                                      size: 22,
+                                    ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(1, 0),
+                                  child: FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.share_sharp,
+                                      color: Color(0xFF606060),
+                                      size: 20,
+                                    ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).tertiary,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 3),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      17, 17, 17, 0),
+                                  child: Text(
+                                    'Descrição resumida do produto. Verificar container elástico para descrições longas.',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Nunito',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 3),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                              reverseDuration: Duration(milliseconds: 0),
+                              child: FreightWidget(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.local_shipping,
+                          ),
+                          title: Text(
+                            'Frete e Prazo',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Nunito',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_right,
+                            color: Color(0xFF303030),
+                            size: 20,
+                          ),
+                          tileColor: Colors.white,
+                          dense: false,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 3, 0, 7),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                              reverseDuration: Duration(milliseconds: 0),
+                              child: PaymentMethodsWidget(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.credit_card,
+                          ),
+                          title: Text(
+                            'Formas de pagamento',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Nunito',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_right,
+                            color: Color(0xFF303030),
+                            size: 20,
+                          ),
+                          tileColor: Colors.white,
+                          dense: false,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                              reverseDuration: Duration(milliseconds: 0),
+                              child: ProductInformationWidget(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          title: Text(
+                            'Informações do Produto',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Nunito',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_right,
+                            color: Color(0xFF303030),
+                            size: 20,
+                          ),
+                          tileColor: Colors.white,
+                          dense: false,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                              reverseDuration: Duration(milliseconds: 0),
+                              child: ProductSpecificationWidget(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          title: Text(
+                            'Especificação do produto',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Nunito',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_right,
+                            color: Color(0xFF303030),
+                            size: 20,
+                          ),
+                          tileColor: Colors.white,
+                          dense: false,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                              reverseDuration: Duration(milliseconds: 0),
+                              child: TechnicalInformationWidget(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          title: Text(
+                            'Informações técnicas',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Nunito',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_right,
+                            color: Color(0xFF303030),
+                            size: 20,
+                          ),
+                          tileColor: Colors.white,
+                          dense: false,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(17, 7, 0, 0),
+                      child: Text(
+                        'Produtos Relacionados',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Nunito',
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 7),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                      reverseDuration:
+                                          Duration(milliseconds: 0),
+                                      child: ProductWidget(),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 150,
+                                      height: 150,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 177,
+                                        maxHeight: 177,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFEEEEEE),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                          color: Color(0xFFF5F5F5),
+                                        ),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(7),
+                                        child: Image.asset(
+                                          'assets/images/ghg.jpg',
+                                          width: 177,
+                                          height: 177,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          7, 0, 0, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 7, 0, 0),
+                                            child: Text(
+                                              'Woman Colônia 100ml',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 1, 0, 0),
+                                            child: Text(
+                                              'R\$ 800,00',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Nunito',
+                                                    color: Color(0xFF303030),
+                                                    fontSize: 12,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                      reverseDuration:
+                                          Duration(milliseconds: 0),
+                                      child: ProductWidget(),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 150,
+                                      height: 150,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 177,
+                                        maxHeight: 177,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFEEEEEE),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                          color: Color(0xFFF5F5F5),
+                                        ),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(7),
+                                        child: Image.asset(
+                                          'assets/images/Bolsa-Baguete-Pantone-Verde-9982846-Verde_3.webp',
+                                          width: 177,
+                                          height: 177,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          7, 0, 0, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 7, 0, 0),
+                                            child: Text(
+                                              'Woman Colônia 100ml',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 1, 0, 0),
+                                            child: Text(
+                                              'R\$ 800,00',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Nunito',
+                                                    color: Color(0xFF303030),
+                                                    fontSize: 12,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                      reverseDuration:
+                                          Duration(milliseconds: 0),
+                                      child: ProductWidget(),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 150,
+                                      height: 150,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 177,
+                                        maxHeight: 177,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFEEEEEE),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                          color: Color(0xFFF5F5F5),
+                                        ),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(7),
+                                        child: Image.asset(
+                                          'assets/images/15790654-800-auto.webp',
+                                          width: 177,
+                                          height: 177,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          7, 0, 0, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 7, 0, 0),
+                                            child: Text(
+                                              'Woman Colônia 100ml',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 1, 0, 0),
+                                            child: Text(
+                                              'R\$ 800,00',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Nunito',
+                                                    color: Color(0xFF303030),
+                                                    fontSize: 12,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional(0, 1),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFEFEFEF),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 3,
+                        color: Color(0x2DFFFFFF),
+                        offset: Offset(
+                          0.0,
+                          0,
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.4,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 0,
+                          ),
+                        ),
+                        child: FlutterFlowCountController(
+                          decrementIconBuilder: (enabled) => FaIcon(
+                            FontAwesomeIcons.minus,
+                            color:
+                                enabled ? Color(0xFF303030) : Color(0xFFEEEEEE),
+                            size: 17,
+                          ),
+                          incrementIconBuilder: (enabled) => FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: enabled ? Colors.blue : Color(0xFFEEEEEE),
+                            size: 17,
+                          ),
+                          countBuilder: (count) => Text(
+                            count.toString(),
+                            style: GoogleFonts.getFont(
+                              'Roboto',
+                              color: Color(0xFF303030),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ),
+                          ),
+                          count: _model.countControllerValue ??= 0,
+                          updateCount: (count) => safeSetState(
+                              () => _model.countControllerValue = count),
+                          stepSize: 1,
+                        ),
+                      ),
+                      FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 60,
+                        icon: Icon(
+                          Icons.shopping_cart_outlined,
+                          color: Color(0xFF5F5F5F),
+                          size: 24,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                              reverseDuration: Duration(milliseconds: 0),
+                              child: NavBarPage(initialPage: 'Cart'),
+                            ),
+                          );
+                        },
+                        text: 'FINALIZAR COMPRA',
+                        options: FFButtonOptions(
+                          width: 170,
+                          height: 50,
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Nunito',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                          elevation: 0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 0,
+                          ),
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

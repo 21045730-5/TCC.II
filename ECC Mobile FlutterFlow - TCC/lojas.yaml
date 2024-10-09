@@ -1,0 +1,1154 @@
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/pages/store_product/store_product_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'lojas_model.dart';
+export 'lojas_model.dart';
+
+class LojasWidget extends StatefulWidget {
+  const LojasWidget({super.key});
+
+  @override
+  State<LojasWidget> createState() => _LojasWidgetState();
+}
+
+class _LojasWidgetState extends State<LojasWidget> {
+  late LojasModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => LojasModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: Color(0xFFF5F5F5),
+      appBar: AppBar(
+        backgroundColor: Color(0xDFFEFEFE),
+        iconTheme: IconThemeData(color: Color(0xFF282828)),
+        automaticallyImplyLeading: true,
+        title: Text(
+          'Localize uma Loja',
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Nunito',
+                fontSize: 17,
+                letterSpacing: 0.0,
+              ),
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 4,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Stack(
+          children: [
+            Container(
+              width: MediaQuery.sizeOf(context).width,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0x00FFFFFF),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).tertiary,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(17, 0, 17, 0),
+                        child: TextFormField(
+                          controller: _model.textController,
+                          focusNode: _model.textFieldFocusNode,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'Busque pelo Nome',
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Nunito',
+                                    color: Color(0xFF898989),
+                                    letterSpacing: 0.0,
+                                  ),
+                          textAlign: TextAlign.start,
+                          keyboardType: TextInputType.number,
+                          validator: _model.textControllerValidator
+                              .asValidator(context),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                      child: FlutterFlowDropDown<String>(
+                        controller: _model.dropDownValueController1 ??=
+                            FormFieldController<String>(null),
+                        options: ['Option 1'],
+                        onChanged: (val) =>
+                            safeSetState(() => _model.dropDownValue1 = val),
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 50,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Nunito',
+                                  color: Colors.black,
+                                  letterSpacing: 0.0,
+                                ),
+                        hintText: 'Estado',
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                        hidesUnderline: true,
+                        isSearchable: false,
+                        isMultiSelect: false,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: FlutterFlowDropDown<String>(
+                        controller: _model.dropDownValueController2 ??=
+                            FormFieldController<String>(null),
+                        options: ['Option 1'],
+                        onChanged: (val) =>
+                            safeSetState(() => _model.dropDownValue2 = val),
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 50,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Nunito',
+                                  color: Colors.black,
+                                  letterSpacing: 0.0,
+                                ),
+                        hintText: 'Cidade',
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                        hidesUnderline: true,
+                        isSearchable: false,
+                        isMultiSelect: false,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 7),
+                      child: Text(
+                        'Selecione uma Loja',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Nunito',
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Container(
+                                          width: 60,
+                                          height: 60,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'https://cdn.shopk.it/usercontent/intecc/media/images/577339a-photo.jpg',
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            7, 0, 0, 0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.75,
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Apple',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Av. Roque Petroni Júnior, 1089',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color:
+                                                              Color(0xFFA1A1A1),
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Aberto',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success,
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Container(
+                                          width: 60,
+                                          height: 60,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwK1ilCUJ6z9SLBU5onbhuQgP89fiTxFgeg&usqp=CAU',
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            7, 0, 0, 0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.75,
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Hipermercado Extra',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Av. Roque Petroni Júnior, 1089   São Paulo - SP',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color:
+                                                              Color(0xFFA1A1A1),
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Aberto',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success,
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Container(
+                                          width: 60,
+                                          height: 60,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'https://pbs.twimg.com/profile_images/1243203360498556933/SE3h6QiV_400x400.jpg',
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            7, 0, 0, 0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.75,
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Subway',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Av. Roque Petroni Júnior, 1089 - São Paulo',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color:
+                                                              Color(0xFFA1A1A1),
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Aberto',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success,
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Container(
+                                          width: 60,
+                                          height: 60,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEBUSEhIVFRUVFRUVFRUVFRUVFRUVFRUWFhUVFxcYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0lHyYtLS0tLS0tLS0tLS4tLS8tLy0tLS0tLS0tLS0tLy8tLS0tLy0tLS0tLS0tLy0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEBAAIDAQEAAAAAAAAAAAAAAQMGAgQHBQj/xAA+EAACAgECAwYDBAgFBAMAAAABAgADEQQSBSExEyJBUWFxBjKBBxRSkTNCYnJzkqGxI1OCsuEkJVTwFbPx/8QAGwEBAQADAQEBAAAAAAAAAAAAAAECAwUGBAf/xAA2EQABAwIEAwUGBQUBAAAAAAABAAIRAyEEEjFBUWGBBRMicZFCobHB0fAGFDIzUiOCouHxwv/aAAwDAQACEQMRAD8A0+SInHX6ukRLCKSyRCJERCJERCJERCJERCiREQiREQiREQiREQiREQiREQiREQiRGIhISIiFUlkiESJZIRIiIRIiIRIiIUSIiESIiESIiESIiESIiESIiESMREIksksKpEmIhEiIhEiIhFZIiESIlhFJZIhEiIhRIiIRIiIRIiIRIiIRIiIRIiIVSIiEVkiIROUSxCQpERCJERCKxJEJKREQokREIkRKB6QqpEwtrKwcdoufJe8fyWc6b1f5GVseH6w91mWR0TBhaW4ik5+RrwXcJE+kyucTjbaqDLMoH7UxLrKs4Nij37uf5oDHESAUdXpMdkc8A8CRPpKzxLtPlJMVtSIiESIiESIiEVkiIVViSIRWJOUQkpERCJERCiREQiREoHlCsKSgTloqnus7LT1Ne/itfyj1ew91B7kzeOB/ZvkBtdZu8fu9JK1D0d/ms+mB7z5sTjKOGH9V0Hhq49PrA5rl4rtahRlrfE7gNOp0HvPKFpPDtNbqH2aapr2HIkcqk/iWkYHt1m88F+zVeT66ztT17CruUD0J+az+g9DN80elrqQV1IqIvIKgCqPYCZp5zFduVqlqXgH+Xrt/bHMledxOOr4mzzDeA063k9bcgtOLWfeH0fDa9NQunVDfa1WQGsG5K0RSMnbgkk+M+Hx7RNqKtWmprqXXaGsXJqKAVW2oq7AYPMZCMpU558xNg1lWo0Wsu1NVD6ijUis2pXt7Wq2tdgdFYjepUDIznM+Zer6s3VaXR6jT/eyo1eq1SGsrWF2mupWJLNtyABgDJlw7xTc17IFmkOtIdYvzXmP1DLBkRAOq5kkef3Ee4zsvi/DOn7HSVataa7dZrbzTp+1510KC4B8wAK2Y45nIE2jU6jU0WVJxFdNqNPqHFG9KiprtszsDKxYMjHlnlidCzhh0QGnt0t+p0aXjUaWzTgtfp2DbuzdQQxAJbDDOQefp37mv4ldQDp7NNpqbk1DtqAqW3PWc11rWCSFzgkmXE1RWquqWLTmMmJDfZAgyHN0yj2hfMLquc5xJcZcbnmdydvuF1+NfZvQ2X0jnTP8AhADadvdDzX3U/QzQuLcN1GlONVUU8Bane07ezY7h9GwZ7tONlYYFWAYEYIIyCPIg9ZqwvbVelap4xzN+jvrPKF0MNjK2G/bNuB09NukLwP2HKSeicc+zio5fRv8Ad369mRu07H1XrX/p5ek0Limju0rbNVUaSeSt81L/ALrjl9Dg+s9JhcbQxP7Zv/E6+m/SecL0WF7XoVYa/wALuenQ/IxylYIlI9JJ9a6yAROvq2IJChjhV2qu4bt27c2FZTy2qOvj7TJQfmG7cFYbf5Vbb+1j15/lMstpXztrg1Mkfd/p8OIWSIiYreksSQqrEkQkpEskJCSyRCJKJNx3itQz2N8taAvYfoOnvNv4H9nd92H1b9gn+TSQbD05PZjC+y59xNOIxNLDtzVXRw4nyHz04lc/Fdp0MNLSZdwGvXYdb8AVqNQZ7OyqRrrD+pUMn3c9EHqZunBPs4ezDa6zC/5FDH8rburey495twTRcMowqLUnTagy9hA/Nz6kzoWfHemDupD7AOVgC5J8e6SNoHTM4tXtHF4kH8rTIHH2umw6Sea4VXEYzGiGghvBu/mdXeWh4WWxcP4fVRWK6a1rQdFQAD39T6mdmYdBqO0qSzay71DbWGGXIzgjznYxPNPzZjm19VyhGi4xOWIxMIVXGWXE4scAk8gOZPkB4xBSVZJprfH1Qsx2TdmWAVy2Ce/hmxjoBk4z+U3TE+jEYStQjvWxOi3VaFSlGcRPl8veNlxidLT8TqstapG3Mq7mx0XDFME+DZXpO/ianMc0wQtRBBgiCuMx6nTpYhSxFdGGGVgGUjyIPIzNiMTESLqLzvjf2bAZfQv2Z69jb3qT+63zV/1HtNF1tNlD9nqamoc9N/yP+5YOTCe/YnW1+gqvrNd1a2IequoYe/Px9Z3MJ23Wp+GsM44+1679b8wvrwuPrYazDLf4nTpw6W5FeDW1g/Mv7sKoHIDAm8cb+zZky2hsG3/x7mJHtXd1X2bPvNKvR67Oytramz/LtGCfVD0ceonpMNi6WJb/AEnTy3HmPmJHOV6LB9pYeu7+LzsYv5O38rHkuMRE3rppEskKpERCJESwiTDq7SlbsOoVisywQCCCMg91vYyiJusHguaQ0wYMHhbXot74Ct2m7Wnh2n07nTV1NqbbnbttTZZWLcIV6Lg8i3LyE3/gnEF1Wmq1CAhbUVwD1G4dD6g5H0niWm4vq66mpTUBVZRUX7Je37JQQtfbY3FQCQM8xnkRPXvs1H/adH/BX+5nKxeBBGcwTIveTa5M8TflppC/P6+Fr4UgVhEzFwdIvYnjvdanxrTPruI3Vh9iaauxifMU8iF8CxZzz9PQTceB8NqOk02akO2qtlyqnazKCWGRyJJJzNT0tq6bimtSw47WrUBM+JsxYmPcDHvN/wCC0FdNSrDDLVWCD1BCAETXXokta3YAR6X98r7e0oaKbfZygt8srb+s9ZXX1fEaanVLLFQuGZQ3IEL1O7oOnifCcdDxWi5c12IRlhzOD3epweePHPlPhfFOv09zVUJp01drFuzBYitcFlYuy9RmtiV6dz2nw+B6EnV6+sVIr9heqVpjbWzMq7azgYHPHQcpgMAzKZmenGPmtbMOw0i58tIANyNC/LMRIFxrw4EFbfqfiXSJYyNcuVGSRzU/shhyLenrO1bxXTqxVrFRhWLSGyvcPv8ArenWec6dbtBWtl/C6cq5A1FoRn3uWZflc4IHIHHRRNj4rqatTqaqV0dep1ArR7O0YipF7rFWODu+YYyDgt7iV3Z7AbaXvI+x6rKthmMMtuyHeIOaZykCdLagRcybSYB2fh/EKblDVWKwIzgHvAdOa9R9ZeI7hTYUTewrcqnXe204X6nlNT+zKgB9V3QGV1XoMqM2d3Pl3R+U3jU2KiM7HCopZj5BRk/2mt+Ca18NXzYpgo13U23ANl5JxrSa1leu7s8aRVs2IF2oH27UG1AOmfDkBPQfhLV9to6XzkhQjfvJ3ST74z9Zqej4FxDUo+oS6utNUWcqzONysW25AU8tuMc+k732YXlWv0j8mrfeB6giuwfQqn5z6q9APpZRFjNuYvbzuuliy2phTlc0mmR+kRAIAdsBd4mWyL66J8CLnV67+KP/ALLptOo4hSliVM6ixzhUzzzg4z5dOWepmn/DaAvxYHpizzH/AJHiOk+LwDgr6upeyq2MlrNZqmYhMBVxWMc2I+bljHmMzB+DZUeXOOzR/jboFcVQpvrVKlR0NGQetOZ5xFwBJGi9Js4nSty0F17RgcL/AEwfInwHjicF4tpylrixSlJK2HyI8PXPQY6npNP+M9Gh1Og72429mtlyFVa09pUvabl8cE4PhPn08NrN/EUwQlKXtWgJCBkLIjEeJUMcZ6ZmAwFPLMnSffB+9lqp4Ok6kHucdATYbvycv9c1vmr4vSKDYt1YBwqsSXUPYu5Nyrzx4npyBnxNHq7zeKjxDTNsKtYBUF3DOGRW3Yfrjkcg4nzuCajTU8IzfVv7W1xsGd1jhiFO4d4YCqM+HLE6n3Ds+IaNLNLVRuUMakIcN/iWbS5I5uOQJOfkHOZtwTGlwjjsPvj7uF4KDGGq2/h7yCct8nItkbiRvBFwV6TcQqlm5BQWPsBkzzfiPErNXTQ+s0mmOh1dqVVDefvdfbHbVaD8ufHC8wPOej8XX/p7v4Vn+wzwLhnGdWukqpXUDs1AasvSj20kgqexduacmYA9QDyIjDYAEF1gQRBvax0jdc+jhq2JJbSExrcD4rrqhXepbd2dlte78fZuyg/XEslaBQAPD/0n3lnYcZK97h2OZSY15kgAE63A47pLEki3qxJ/74xCJERCKyREIuS9Z7b9ma/9o0f8Bf7meJL1nsv2fcV09XCNELb6qz2C8nsRD4+DGZd3nbHP6ryv4lMGl/d/5XY+LPhFdZtsV+yuQYV8ZBAOVDAEHkehHTM+fpvhniTjZqNeRV0bsixsZfEbmAxn1zN1016WDdW6uPNGDD8xMuJj3K4LMbWbTDA6w0sCR5EgkdCPVafxX4POaX0Vv3d6k2Dukgpz9c7u8efPOfrMXD/gu2l3tXWW9o6bWcgZLs3fckk5GMbR1BGcmbrtnxP/AJwB7t/Z110MVcvZi3AQNvFYX5TuAHPn+Ql7pT85WyBma0R0mYnUgHQGVrQ+zdTeWs1Nj1kZYHAsZ855sOWOZ6DPOd3iHwhb23a6PUmglFrfILMQuBuBBGThV+ozmfV0fxVp7BTjdm/ttozXy7BwlmTuweZB7ucjJna0/H9O61MGfF36Imm3v5Xdy7v4cn2B8jHdSsj2hiS7MXk2i97W2MjYajUA6hfL+GfhMaOy1xfY4sCja21RkDmzY+ZslsHlgHHPrOnq+Avrrr/vFtq012NVVVWRjuqpNjbgeZJ5TZRxnTYU9vWA52qSwAYjHIE9fmX8xJWdP2naK6b3ZquVmA715DoVBw7r2bA8iRsI5YjuTMrH83VzF5ccx9qb+uo2uL7aEr4nw18KfdXZnvssClhSpLBUVgASVzguemenKcLfg4HXtqltdFbvFU7rdrkHJbxTIDEeJ9OU2nU3pWu+x1RRgFnYKuTyAyeUw38SoTbvuqXeAVy6jcCQARz5gkgZ9RJ3KHGVi5zy8y4QeYWu8N+DVpsvP3i0rchQr0bnnezNjvHmcHw3HrOtw74E7N3U6m06ZiG7EErvI8LCDgr7AZ8enPZNRxqisMWc4RgjMqOyhy61hNyqVLbmAIzkeOMGdPVfFNCNagWxmpqa5lCjJRESw45/hsXBOATkAkgiO6V/O4jxeM3iecRHUQL6810+OfB1eospdbHq7HYoVMbRWhyAg6I2cc/TpMdXwWo1N1xus2XI6msYHOzO8s36wGcgeB859Wn4grbVNpyCvMLXYQezsfs1sNYbGA+1shc5IVsdDPs4juli3F1mtyh5iI12mfitHr+BNuk7D7wdy2mypto21nngBc5wRzPPrz9JK/gm5ra79RrbHtRwSyj5UXJCIWOVOcZPTryyczecThc6oNzsqjzYgD8zL3RWZx+IgjObydpvreJAPAW5Sunxhf8Ap7v4Vn+wz84aH9FX/DX+0/Quv4xprKblTUUu3ZWd1ba2b5D4A5n560P6Kv8Ahr/aXu8jY5/Jdn8NmatTyHxWWIiYr1qSyRCqRLj0iFVIiIUSIiEWHUkkpUndLbmLD5lRfw/tNzWdeqpDk1aZWUHGSy7nI/DuH/7M+pJRltAY7QQ6rjdsPQg+IBB/pMdGpprXlbvUMTWq5LAHvbcHn1m5s5bCfX3xHKFxa+U4k96/LrBOSQ3K2MucEZSc2aBmzAA+FZdGicrad1ZP69LNVYD+svdI8vKbXwn4/wCJafA7VNSg/VvXD48hamCfdgZqmiqKr3hgvYbNv4ctjbM0neOaSAbeq2js3DYmk11WmA4gEwMpnmPkZ4HRes8K+1rSnH3uq3TH8WO2p+joM/mom66DXaXVILKbKr1BBDIy2AEHI6ZwQRn0xPzkpx0OPacK6wr9pXursHS2pmrcf6kIm1tdvtD0XHxH4aIvQf0d9R9B5r9Jvwqkl22ANYroxGQSr438weWcDn6THRwapOxC7gKCxrG7OCylDnPXAY49543wf7QuJUcmsr1SD9S7uWewsUf7gZu3CftZ0b4XUpZpW83XfV9LEzy9WAm9ppv0K4WJ7PxWH/cYQOOo9RI6a8l9pPg2kV0177CKM7M7OeTWe+AuH/RDkc53HPhg3wtSWA7ezer2W1YYA1vbqG1LuFHzZYqOeRtQDxOft0a9L6TZpra7QVOxkdXQtjlzBx1njOkq0T0LW9N44kBbbrdW/a1XaOyut3N5tI2ldyqqqDgg+cz7pq+OV65xPhiWKE7UoxtquXLF+9S62AKrHkpKjIGOpnzx8IVBLEFtgW+tq7x3MWK722NjK/4fO6wd3GA3oDPMdDZoX0wt4hXddqNVQLqtaotssfUl7FOnpFa4pasqgA5Dn4Ces/Dmosr4dp31zBLRTX2zWMFw20bi5PIHz9cx3YSVR8O09m9WbOxcsxq3DYGdt7MpxuHeyeuATymdOCUBt/Zhn2hd7Es20AjGSemGIPmMDwE1fi/2qcPqytJfVOPChcpn1tbCY9QTNK4v9pfEbsirstIv7I7e7H7xGwflMH92z9RX1YbBYjEftMJHHQepsvY7rKNNWWdqqKx1LFa0HLxJwPD+k0zi32raKvK6cWaphy/whtrz62vgY9VzPH9Xm5+0ud73/Fe5sIz5A8gPSXPr/wATQ6u32R6rvYf8NON6745N+p+hC2vi32j8SvyEavSp5VDtrf52GB9Fmo63FhNmose1gCxe9msI88An+gnKY9VSWRkH6y8v3szV3jiYJgLss7Lw2Hpl1KmHOAMZrkmLdSeEcl02RSu86Vez+Y4Khwvnj/mdjTkq2zduVk7Stz4KMkr7dDOFmrV0IZ+ycrtZW5FfFgueufOXTYZw6jFaJ2abvHcO83sAuPoJkZgyI9emv3ErVTLO9b3b8xtfwgxPjBDQIaBs7R2UAzZdqIiaF2UlklhVMRGIhIUiIhEiIhRAZQfU5kiESInDmbkXOFKOWXu97GPT1lAWD3hgBI1IFuZj0vf5rnLOjVqyqc1azlYxbcqjCPhuXtj+adul9wPdZcd07tuQ2FPt0KzJzCFpoYxlaMszAMEHcTE/pnyJHNcpQ3qZ83S23N2eTyJzu2/OWQuF6eGMfWdj75yBFR/RrZ834m27ekppEGNVpo9pUnsLyHNHMXsAT+mdJidDtIuuxpwa37Spnos/HS5rbl5heRHoZ3+J8b1mpr7LU6y26vlmoKiA45jfsAz9Z8e7VdxxtYOvad1drbdqq27J5beYnNNRzVdrMO6m/u/pNm/5fP1mQdUA1Wh1Hs+pVBdTBNvZOp2IG/HMLWzQvpcL4tqtLu+66myhXOSqqliZ8WVXUgH1E62ute9t+pusvbqDa5O0/sp8q/QTq33d9UXdzsrUlcbe8fl5/s+Uun1QdsAEDDMp/Eqtt/0+UZqmXUwsm0MB385G5ydY1O8bWJueJiZXYyRy54knUDMNx3ggXBNrKvR9nRgM7huH8sWazcrbNy8gyt3W3KbFXveTc84mHdnZb3Y+mwHMCCATFpIHCDAFtyDyuF24mBdQxd17PJ3thc7e6m3vM3qSs4vq9qlinRsc2rXb3Qe7y73Jv+ZAwn/qzdjKTQSZgTfKdtdv9jeF2YmNL82FNp65znn4d7b+Hn1zMkhBGq306jaglp3I31Guvx0VYk9cH6wTnrzkiRZpLEkKqyRLCJiJMRCkJERCqREQiREQok4W0hsE7gRnayttbvfNOcSgxosX02vbleJH2fjfzWL7omAMHChq/mb5X+b+acxSMMO93/m7zfh29fDlOUQXE7rBtCk3RoHQcI+FvJY1oXCAbu4c1827vPPnznAaNOfdPPufO/TduwOfnM8S53cVgcJQPsN9BwAjygAeQA0ELE+mQ5yvUs3zMPm27j3W6cl/OBplBU4OVx4sT3V27tvTO3lmZYjO7SVl+Wo5s2QTrMCfhttwWJ9OpO4g57rdTncPlbrjdOVdKqdw8fDcxXz5KeQ+s5xIXE2lUUKQdmDRMzMCZOpnmsSaZA27aSwbdliWG78WAce0fdkxjBwRjbufHI7hhc5AzMsS5ncVj+VoxGRu+w319d+KxNpkOeudzNu3sGy3dbnu9Okn3RPJufXvNy3BQV+b5cAfyzNEZ3cVThaB1YPQLGlKg558vlyzNjPd5LuxMkRISTqtjKbGCGADy++EDokREizSIiEViSIRIjMQkJERCiREQqkREKJERCJERCJERCJERCJERCJERCJEskKpERCJERCJERCKySyQisRiIRSIiESIiESIiElIiIRIiIUSIiESIiESIiESIiFUiIhRIiIRIiWFVIiWEUiJYRMRGIhEkliEUlklhFIiIRWSIhRIiIRIiIVSIiESIiESIiESIiFEiIhEiIhFZIiFUiIhExEsQqggRELFBJ4REKlDERCKyREKqyREKFIiIQJORiITZcRL4REIoYaIhRcmkliFVxEpliEWMTkIiFAhkiIQqrLLEI1SIiEX/9k=',
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            7, 0, 0, 0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.75,
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Casa Alemã',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Av. Roque Júnior, 1089 Jundiai - SP',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color:
+                                                              Color(0xFFA1A1A1),
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Aberto',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success,
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Container(
+                                          width: 60,
+                                          height: 60,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            'https://i.pinimg.com/originals/fe/ca/49/feca4997dc48ddd6f917c176d1451615.png',
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            7, 0, 0, 0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.75,
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Tommy Hilfiger',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Av. Pedro Júnior, 1089  Rio de Janeiro - RJ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color:
+                                                              Color(0xFFA1A1A1),
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                'Aberto',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Nunito',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success,
+                                                          fontSize: 12,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Opacity(
+                            opacity: 0.5,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12, 0, 0, 0),
+                                          child: Container(
+                                            width: 60,
+                                            height: 60,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              'https://logodownload.org/wp-content/uploads/2014/05/pao-de-acucar-logo-0.png',
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  7, 0, 0, 0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.75,
+                                            decoration: BoxDecoration(),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Hipermercado Pão de Açúcar',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Av. Roque Petroni Júnior, 1089',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        color:
+                                                            Color(0xFFA1A1A1),
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Fechado',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        color:
+                                                            Color(0xFFA10000),
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Opacity(
+                            opacity: 0.5,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12, 0, 0, 0),
+                                          child: Container(
+                                            width: 60,
+                                            height: 60,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAwFBMVEXbAAf/vA3aAADjSUz////fJCj/vg3/wA3/wg3+tA3cAAf/xA3/uw3/uQ3YAAb1kgz9sA33mQz9sQ37qQz0jQv5owz4nQzeHAjhLgjrZgrlSQnoWAn5pgzvdwvzhgvsbArygwvxr7DucQrnUgnjQgjmbW/98vP86er2yMnwp6nvewvhNgjraArnXQn20NDrlpbkW13unZ/pe33rjY/yt7jkX2HeHSH52tvlZWfjUVTphIXhREbdFBjiRUjgLjL64uIXs6TKAAAMAklEQVR4nO2de1/bNhSGHRMcxwkmQCDhVm4BCim0Hd1Y2dZ9/2812yFE5xzZfo8cttrz+8d+K8SyHks6NynG65q6ebz7fP1lo7b6fv357vmGIHU94/8vNvwmKPp+cWMl/Jr+1muAUo5fbgXh82Yz8BZKGJ8Y4bcm8aXy/R+3JuFd0wC9lPHjivBjAwFTxMcl4W0jAVPE21fCX5sJmCBuLAg/+tF/3ZX3kn+REW40dQgTwt9SwufmAiaI3xLCl0YTfkkINxtNGN14fzcZMEF89i4aTnjnPTWc8LP3peGE116jDU1qTBtPuNES1l0tYf3VEtZfLWH91RLWXy1h/dUS1l8tYf3VEtZfLWH91RLWXy1h/dUSqhXHceUGKrZAtVbC2Js9nI/Hp1dTz62TsTc/vh+P74/njg1YtEbCeHreD8NeEIRhMDqd6LuYNLDbSxtI/uPUgFVrI4wn40Gvs1QQ9s6VJ1h4A4G2gRytizB+GK66lyncOlaNwlnAG+gfrWMY10U4HnSEBmP8+ujA1sD9GhDXQxjthbJ/ySjsoRNt2u/ZGhjsVO7aegijkbV/yWranUANzLYCewPhQdW+rYUwGuX0L0HsI4jzILeB6ojrINwnI0h7G4zKJ+qUjiBtIBxXXIvVCeOxuQbD4cFJaBL39ssaiHZNpLC3vx+YLQ5OqyFWJozPjO4E/Ye0y+ekyyWDEB8YDyQYXiZjHl0OjRbCqyr9q044NQB7e4tAJJ51jB4OHooQ43vDTQS700UD877RwLCS669MaFiZYPT20+mWubCmBdcfmVNgtWgnQ+PHB1XmaUXC+Nzo4HBFEpOO7xX0kAyW8Shm5jw9rIBYkXBugJDZGJ8avwlzjQUxU7SBe9PcYG7VqoqEJ8YcpXMpNp1k7jwlQ71Dn4PRQG/HfRArEcaHhpUI5/SXpPN5K6noMVyZwztz7WPFMTTsSY87hXjHXEnHtsvjS3Mqn/MGzAmy59zHKoRkqciJOCduwNZA1DElfn1kzpBDx05WIoxMwG0xD+kgnsl5Gn8wfH2PD6FHVnmn79jJKoTx2OigbaGYK9HWw6k5gjZj9GBO4ktHY1OBcGpaiZHl/vGeOYjCY5AnxA3pQuYj6DtGNu6EZI6FZ7aPHJqDGPDfTsysfnBku8U5uYXbILoTEjMxtLrkiRm78R6SJ9QZ2a4nAYXrSnQmpIbU7pHjbTPJYNNsYv6ul1ORIfP8waWfFcaw3ym/+RVJHYnBp1HZwB70kNgvOHHqpzPhg7mKenmfMseJWSOSfeTF5nStOgU2roTETuZM0tRcklzYtCafyPBeQreRPheQK+HMNBP5K+TKHAPSwxOyDOc518f3pAbkkmI4EhJfVnBnYk074epzM4Jut6TZ58iTdCnZuI4hWWD5GS6J3Iwe0ulri9iWIo/IFleUyZGQ+PI8U5/qjBTD38aKjq3V3S9EHY6LrXEjjPfR+xJjuLI1h3QXoOBWNC5yKJ66EU5J0Xar6KOkHr5MIukTKqw0Tciz2NIHp06E1FsXdpDGZsvglI1snq/ItEemizWTLpQbIRmY4g4ekzFY5PokVElGtmh1UZuU63nz5UQ4pb3OtxOJJuZHlz3cw2c5SRKTm6mnqQshGwKRFtEP7xLErdQlzunMLR6XKfmwPvx2GkMyBMF+YQfpLMt6yCfpaeHNYuJY9NPUhXBK7ESRu071iQ54ErnRZVzm5KhHXEwCjVwIL+nKKNkaos8jndN0GZdGm3TEB9qdKAfCmATNxfsuiaI+wQmvYhrnlKZ9JITVO30HQmodc+oPK1Hvnjp98YOS+5GFWGJ5pRwIqfku3fpiCVBnROvAQK2X+pZC72mRnpCt/PKMhj6RTnjG/p2XG77dcKy8IZXDGLJ1VRpHTZhhGdJ/hqU3pJYtKD0YQKUnnFPbOCgNMuLcoyRZh09Kh4SaGm1YoyekxrszLO0gsyycsNw2RoxQF32rCVl/gT12ll4wFcftiwbouuh9UC1ENeGE3Q5wTyzdpQLSdloKKfdPVGrCGbOEwL7ezHLscKWSgMFj2xfYJYa0hDT5TQgB7zRh1lM9IMfsnqqFqCY8oDMGCoRH+YAlmclCbN7oAjf1LGVrCtkQKjKmZZlJJha3dXbfk5CtKWgIxDoyZ1y5KfV4kAH4YENaQhpfYEPAiqaUsLAE8iq+NFQLUUnIDTc2BAXGdICsYz4JikrQQtoxZMeBoSFgxUPaWeiubOZAa2MpJSFPz6Eh8OLcdVh4qG+lI27fFKUMJeEVu1VxnW2peC/PmIKFJT4JcraMrdIR8gUBHsbiq3clNMZk12tOSCkJmVEDz7bmx95oV9kk0ATfSkLmetHo4lOeuwDPcIsniy3fTDrCKZ8t1oNCUnz5rgajrISxECtkJMJ9vo6QhcBwjX2WN0vR+i5zF+iTSaUijE9ZT9G6Fw8s34Sec3pwfLSelvCATxbUL7HAcil4PXGHiEWLmXSzlPu1IXhdnJM/wSdkJvxC/AsKKkIRffXB++Q5RDzA5Em09cyxVSpCVkjEt7ry8qeweGPNaIAvZCxcTKUi5FkQnmzf5xCiaZCwAPi5Ew2hGAl8veeU2wao0RcOEfXESkL+IMNP6G2O7PkTPNcqPFzVLOU2H8sOU03thD14NXGXj6eIGkLht+FJlpcD4xaRR1P4mWgN4YzfJcTTNGtQozj1Kwoh8H6+hlA8R8WpAWsOrPDbYpojpehMCkJ2SKSj2kCwlkwVR0dE3Rx2NBrCbdZLxSSTEW0qRXTp7fJr0a1gDSHvpaLkJRO8bBygWuRCfJrDIa2GkFsLxf4BP67wSojnQOyIi2INKwgjvtg1hVlr2VtDKGJ3NOpXEEpzBkdOMoVdNABHDJZi1gC8UkEoii2amp7wNNlMw/2pKC/AEZ+CUEw0zcsOrJWaQFG6lncHJwBOKI0F7HQ9WaVbSLFLJrITdI0oCLk7VGSh7Jtqb1JssIg1gjpEBaEIvDQbleww20JbCsI5J0R9lWIdimoSas0yWQA1lWuZnQCHqTLhhBNREQwUHRThQkd5oll4Y/Qr+jjhVFhDzbeQbBtsKsJYZJhgcokT8kKbbifWdh5DdXxLnv+zf/dYCCcUxkw3BJaKqY5QmgGswoATCoek+kqnLbnQJE+WSQAWFGFC6fBVR5PYVzIzaZInS4YJ5sA4oeiibggsVW9N5G4JOMAHhBO63uH1cstGt+olXnKag8sYJxTrQPdCFctGd0VCcJXghLxQovySlSUF1n3nVaRPoC3HCYUt1L0pzpIg4gXlVLzqjYZtMGEkCfEM3bMeVtARyioBVseACWX6o5tkfJ+6ozvZZCPE4mKYUIalOkIR9GkJ5SMKoOwNJhSbFsoD5ZYTmLqvEloIoethQjlJhipCyxjqCOUj6kEdqECo66BlB7EqIVYnggnlPrXu1VQWQnz3MNVcGnMoMIUJhTvSEsp1DLyA12xAfGsDCzlQQsvGg+7LOZaDX0pCcT0WNsKEMnL+lwkjUSfCchOYUKQWlQmVb3u0EEKv4YMJ5Ran7nU470CIJagwoawkKV/4I3IT7Rs7RaEGSxBhWyoIra9KzFckOliZECsUwYR8D1b7hor3IIS2gWFCUdFtCZkshODGw6tkwRT73jpKGElD0TBCeWxL+ZXqlrBUsfgrGthCRgmlw9YS9nsBVajZPrTFHGsmlPmnkvDDNpemZm7b2/nJCLO/Nsaku/6nJ6wqy/4c9DKeCoTr+GNMCv0HhBX//otW700oyywt4brVEubJndDppb4VFO+I7bX1Eg77TFuaLeA1KN7e4l2AKkXr+uuAP69awvqrJay/WsL6qyWsv1rC+qslrL9awvqrJay/WsL6qyWsv1rC+qslrL9awvqrJay//geEv3s/Gk745H1vOOFX76XhhI/eXaMJff/We2424R9dr/tbkxH9rwlhkxdi5N8mhLcNJvR/7SaE3evGIkb+c0Z46zcV0b/uZoTdbw0l9P2bV8LuUyMRff+xuyTs/tLAier7d90VYfeicYi+f9E1CbvPfzSKMfL/fOxSwmQYf/hNgUxAXt64VoTd7sff//T9emNm/fc3n266VsJ0st69/LX5756NXas2f3x/ufibIP0Dd4K4wvHuZvEAAAAASUVORK5CYII=',
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  7, 0, 0, 0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.75,
+                                            decoration: BoxDecoration(),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Mc Dolnald ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Av. Farias Lima, 1089 São Paulo - SP',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        color:
+                                                            Color(0xFFA1A1A1),
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Fechado',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        color:
+                                                            Color(0xFFA10000),
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StoreProductWidget(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 77,
+                          decoration: BoxDecoration(),
+                          child: Opacity(
+                            opacity: 0.5,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12, 0, 0, 0),
+                                          child: Container(
+                                            width: 60,
+                                            height: 60,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              'https://www.guide.com.br/wp-content/uploads/2020/12/renner2.png',
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  7, 0, 0, 0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.75,
+                                            decoration: BoxDecoration(),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Lojas Renner',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Av. Roque Petroni Júnior, 1089   Santa Catarina ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        color:
+                                                            Color(0xFFA1A1A1),
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Fechado',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Nunito',
+                                                        color:
+                                                            Color(0xFFA10000),
+                                                        fontSize: 12,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
